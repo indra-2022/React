@@ -1,122 +1,82 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import Card from "./components/Card";
 
-function App() {
-  const [count, setCount] = useState(0)
+const cards = [
+  {
+    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+    icon: "https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/bookmark.svg",
+    company: "Amazon",
+    posted: "5 Days ago",
+    role: "Senior Software Engineer",
+    position: "Full time",
+    level: "Senior",
+    salary: "$120/hr",
+    location: "Kolkata, India"
+  },
+  {
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
+    icon: "https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/bookmark.svg",
+    company: "Google",
+    posted: "2 Days ago",
+    role: "Frontend Developer",
+    position: "Full time",
+    level: "Mid",
+    salary: "$100/hr",
+    location: "Bangalore, India"
+  },
+  {
+    logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+    icon: "https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/bookmark.svg",
+    company: "Microsoft",
+    posted: "1 Day ago",
+    role: "Backend Developer",
+    position: "Full time",
+    level: "Senior",
+    salary: "$110/hr",
+    location: "Hyderabad, India"
+  },
+  {
+    logo: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
+    icon: "https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/bookmark.svg",
+    company: "Meta",
+    posted: "7 Days ago",
+    role: "React Developer",
+    position: "Part time",
+    level: "Junior",
+    salary: "$80/hr",
+    location: "Mumbai, India"
+  },
+  {
+    logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+    icon: "https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/bookmark.svg",
+    company: "Apple",
+    posted: "3 Days ago",
+    role: "Full Stack Developer",
+    position: "Full time",
+    level: "Mid",
+    salary: "$105/hr",
+    location: "Pune, India"
+  }
+];
 
+const App = () => {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="parent">
+      {cards.map((card, index) => (
+        <Card
+          key={index}
+          logo={card.logo}
+          icon={card.icon}
+          company={card.company}
+          posted={card.posted}
+          role={card.role}
+          position={card.position}
+          level={card.level}
+          salary={card.salary}
+          location={card.location}
+        />
+      ))}
+    </div>
+  );
+};
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
-}
-
-export default App
+export default App;
